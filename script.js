@@ -5,7 +5,7 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-camera.position.z = 8;
+camera.position.z = 5;
 var numCubes = 10;
 var cubes = [];
 
