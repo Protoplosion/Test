@@ -15,9 +15,9 @@ for (var i = 0; i < numCubes; i++) {
   var geometry = new THREE.BoxGeometry(1, 1, 1);
   if (anime) {
     var texture = new THREE.TextureLoader().load('image.jpg');
-    var material = new THREE.MeshBasicMaterial({ map: texture });
+    var material = new THREE.MeshStandardMaterial({ map: texture });
   } else {
-    var material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    var material = new THREE.MeshStandardMaterial({ color: 0xff0000, specular: 0xffffff, roughness: 0.55 });
   }
   var cube = new THREE.Mesh(geometry, material);
   
