@@ -20,7 +20,7 @@ for (var i = 0; i < numCubes; i++) {
   
   cube.position.x = Math.random() * (max - min) + min;
   cube.position.y = Math.random() * (max - min) + min;
-  cube.position.z = Math.random() * (100 - 20) + 20;
+  cube.position.z = Math.random() * (10 - 20) + 20;
   
   cube.rotation.x = Math.random() * 360;
   cube.rotation.y = Math.random() * 360;
