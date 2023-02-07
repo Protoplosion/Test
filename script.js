@@ -5,21 +5,30 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-// Create the cube
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var texture = new THREE.TextureLoader().load( './image.jpg' );
-var material = new THREE.MeshBasicMaterial( { map: texture } );
-var cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
-
 camera.position.z = 5;
-cube.position.set(1, 0, 0);
+var numCubes = 10;
+var cubes = [];
 
-// Render loop
+for (var i = 0; i < numCubes; i++) {
+  var geometry = new THREE.BoxGeometry(1, 1, 1);
+  var texture = new THREE.TextureLoader().load('image.jpg');
+  var material = new THREE.MeshBasicMaterial({ map: texture });
+  var cube = new THREE.Mesh(geometry, material);
+
+  cube.position.x = Math.random() * 10 - 5;
+  cube.position.y = Math.random() * 10 - 5;
+  cube.position.z = Math.random() * 10 - 5;
+
+  cubes.push(cube);
+  scene.add(cube);
+}
+
 function render() {
-  requestAnimationFrame( render );
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-  renderer.render( scene, camera );
+  requestAnimationFrame(render);
+  for (var i = 0; i < numCubes; i++) {
+    cubes[i].rotation.x += 0.01;
+    cubes[i].rotation.y += 0.01;
+  }
+  renderer.render(scene, camera);
 }
 render();
