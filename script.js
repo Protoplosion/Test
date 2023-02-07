@@ -6,7 +6,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 // Create the cube
-var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var geometry = new THREE.BoxGeometry( 1, 2, 1 );
 var texture = new THREE.TextureLoader().load( './image.jpg' );
 var material = new THREE.MeshBasicMaterial( { map: texture } );
 var cube = new THREE.Mesh( geometry, material );
