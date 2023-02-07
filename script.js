@@ -6,7 +6,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 camera.position.z = 20;
-var numCubes = 10;
+var numCubes = 50;
 var cubes = [];
 
 for (var i = 0; i < numCubes; i++) {
@@ -15,8 +15,8 @@ for (var i = 0; i < numCubes; i++) {
   var material = new THREE.MeshBasicMaterial({ map: texture });
   var cube = new THREE.Mesh(geometry, material);
   
-  var min = -20;
-  var max = 20;
+  var min = -10;
+  var max = 10;
   
   cube.position.x = Math.random() * (max - min) + min;
   cube.position.y = Math.random() * (max - min) + min;
