@@ -9,10 +9,16 @@ camera.position.z = 5;
 var numCubes = 10;
 var cubes = [];
 
+var anime = false;
+
 for (var i = 0; i < numCubes; i++) {
   var geometry = new THREE.BoxGeometry(1, 1, 1);
-  var texture = new THREE.TextureLoader().load('image.jpg');
-  var material = new THREE.MeshBasicMaterial({ map: texture });
+  if (anime) {
+    var texture = new THREE.TextureLoader().load('image.jpg');
+    var material = new THREE.MeshBasicMaterial({ map: texture });
+  } else {
+    var material = new THREE.MeshBasicMaterial({ 0xff0000 });
+  }
   var cube = new THREE.Mesh(geometry, material);
   
   var posX = window.screen.availWidth / 2 * 0.005;
