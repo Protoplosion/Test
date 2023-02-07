@@ -5,7 +5,7 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-camera.position.z = 15;
+camera.position.z = 10;
 var numCubes = 10;
 var cubes = [];
 
@@ -15,8 +15,8 @@ for (var i = 0; i < numCubes; i++) {
   var material = new THREE.MeshBasicMaterial({ map: texture });
   var cube = new THREE.Mesh(geometry, material);
   
-  var posX = window.screen.availWidth / 2 * 0.02;
-  var posY = window.screen.availHeight / 2 * 0.02;
+  var posX = window.screen.availWidth / 2 * 0.002;
+  var posY = window.screen.availHeight / 2 * 0.002;
   
   cube.position.x = Math.random() * (posX - -posX) + -posX;
   cube.position.y = Math.random() * (posY - -posY) + -posY;
