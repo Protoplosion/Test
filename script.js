@@ -15,8 +15,8 @@ for (var i = 0; i < numCubes; i++) {
   var material = new THREE.MeshBasicMaterial({ map: texture });
   var cube = new THREE.Mesh(geometry, material);
   
-  var min = -window.screen.availWidth / 2;
-  var max = window.screen.availWidth / 2;
+  var min = -window.screen.availWidth / 2 * 0.0002645833;
+  var max = window.screen.availWidth / 2 * 0.0002645833;
   
   cube.position.x = Math.random() * (max - min) + min;
   cube.position.y = Math.random() * (max - min) + min;
