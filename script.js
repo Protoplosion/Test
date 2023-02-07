@@ -9,7 +9,7 @@ camera.position.z = 5;
 var light = new THREE.HemisphereLight(0xffffff, 0x404040, 1);
 scene.add(light);
 
-var numCubes = 10;
+var numCubes = 7;
 var cubes = [];
 var anime = true;
 
