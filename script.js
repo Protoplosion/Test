@@ -5,8 +5,8 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-camera.position.z = 20;
-var numCubes = 50;
+camera.position.z = 10;
+var numCubes = 10;
 var cubes = [];
 
 for (var i = 0; i < numCubes; i++) {
@@ -20,7 +20,7 @@ for (var i = 0; i < numCubes; i++) {
   
   cube.position.x = Math.random() * (posX - -posX) + -posX;
   cube.position.y = Math.random() * (posY - -posY) + -posY;
-  cube.position.z = Math.random() * (10 - 0) + 0;
+  cube.position.z = Math.random() * 10;
   
   cube.rotation.x = Math.random() * 360;
   cube.rotation.y = Math.random() * 360;
