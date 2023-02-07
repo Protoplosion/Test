@@ -4,11 +4,13 @@ var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeig
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
-
 camera.position.z = 5;
+
+var light = new THREE.HemisphereLight(0x404040, 0xFFFFFF, 0.5);
+scene.add(light);
+
 var numCubes = 10;
 var cubes = [];
-
 var anime = false;
 
 for (var i = 0; i < numCubes; i++) {
