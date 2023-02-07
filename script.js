@@ -11,7 +11,7 @@ scene.add(light);
 
 var numCubes = 10;
 var cubes = [];
-var anime = false;
+var anime = true;
 
 for (var i = 0; i < numCubes; i++) {
   var geometry = new THREE.BoxGeometry(1, 1, 1);
