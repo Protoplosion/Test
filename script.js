@@ -14,10 +14,13 @@ for (var i = 0; i < numCubes; i++) {
   var texture = new THREE.TextureLoader().load('image.jpg');
   var material = new THREE.MeshBasicMaterial({ map: texture });
   var cube = new THREE.Mesh(geometry, material);
-
-  cube.position.x = Math.random() * 20;
-  cube.position.y = Math.random() * 20;
-  cube.position.z = Math.random() * 20;
+  
+  var min = -20;
+  var max = 20;
+  
+  cube.position.x = Math.random() * (max - min) + min;
+  cube.position.y = Math.random() * (max - min) + min;
+  cube.position.z = Math.random() * (max - min) + min;
   
   cube.rotation.x = Math.random() * 360;
   cube.rotation.y = Math.random() * 360;
