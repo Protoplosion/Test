@@ -6,7 +6,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 camera.position.z = 5;
 
-var light = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.5);
+var light = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
 scene.add(light);
 
 var numCubes = 10;
