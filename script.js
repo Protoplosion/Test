@@ -15,9 +15,13 @@ for (var i = 0; i < numCubes; i++) {
   var material = new THREE.MeshBasicMaterial({ map: texture });
   var cube = new THREE.Mesh(geometry, material);
 
-  cube.position.x = Math.random() * 10 - 5;
-  cube.position.y = Math.random() * 10 - 5;
-  cube.position.z = Math.random() * 10 - 5;
+  cube.position.x = Math.random() * 10;
+  cube.position.y = Math.random() * 10;
+  cube.position.z = Math.random() * 10;
+  
+  cube.rotation.x = Math.random() * 10;
+  cube.rotation.y = Math.random() * 10;
+  cube.rotation.z = Math.random() * 10;
 
   cubes.push(cube);
   scene.add(cube);
