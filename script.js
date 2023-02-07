@@ -17,7 +17,7 @@ for (var i = 0; i < numCubes; i++) {
     var texture = new THREE.TextureLoader().load('image.jpg');
     var material = new THREE.MeshBasicMaterial({ map: texture });
   } else {
-    var material = new THREE.MeshBasicMaterial({ 0xff0000 });
+    var material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
   }
   var cube = new THREE.Mesh(geometry, material);
   
