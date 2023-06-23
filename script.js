@@ -66,7 +66,7 @@ function render() {
 		found = true
 	}
 	if (!found) {
-		cubes.object.material.color.set(0xffffff);
+		intersects.object.material.color.set(0xffffff);
 	}
 	
   for (var i = 0; i < numCubes; i++) {
