@@ -40,7 +40,7 @@ for (var i = 0; i < numCubes; i++) {
 // Controls
 var speed = 0.001;
 document.addEventListener( "mousewheel", (event) => {
-	speed += event.deltaY / 5000
+	speed += event.deltaY / 20000
   camera.position.z += event.deltaY / 20;
 });
 
