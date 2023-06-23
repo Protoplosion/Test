@@ -44,7 +44,7 @@ for (var i = 0; i < numCubes; i++) {
 
 // Controls
 document.addEventListener( "mousewheel", (event) => {
-	speed += event.deltaY / 500
+	speed += event.deltaY / 9000
   //camera.fov += event.deltaY / 20;
   //camera.updateProjectionMatrix();
 });
@@ -53,17 +53,22 @@ function onPointerMove( event ) {
   pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
 	pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
 }
-
+let found = false
 // Render
 function render() {
   requestAnimationFrame(render);
 
-  raycaster.setFromCamera( pointer, camera );
-	const intersects = raycaster.intersectObjects( scene.children );
+  raycaster.setFromCamera(pointer, camera);
+	const intersects = raycaster.intersectObjects(scene.children);
+	found = false
 	for (let i = 0; i < intersects.length; i++) {
-		intersects[ i ].object.material.color.set( 0xff0000 );
+		intersects[i].object.material.color.set(0xff0000);
+		found = true
 	}
-  
+	if (!found) {
+		cubes.object.material.color.set(0xffffff);
+	}
+	
   for (var i = 0; i < numCubes; i++) {
     cubes[i].rotation.x += speed;
     cubes[i].rotation.y += speed;
