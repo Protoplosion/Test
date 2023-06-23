@@ -38,11 +38,10 @@ for (var i = 0; i < numCubes; i++) {
 }
 
 // Controls
-var speed = 0.01;
+var speed = 0.001;
 document.addEventListener( "mousewheel", (event) => {
-	speed += event.deltaY / 9000
-  camera.fov += event.deltaY / 20;
-  camera.updateProjectionMatrix();
+	speed += event.deltaY / 5000
+  camera.position.z += event.deltaY / 20;
 });
 
 function onPointerMove( event ) {
