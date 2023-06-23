@@ -21,7 +21,7 @@ for (var i = 0; i < numCubes; i++) {
     var texture = new THREE.TextureLoader().load('woof.gif');
     var material = new THREE.MeshStandardMaterial({ map: texture });
   } else {
-    var material = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0x111111, specular: 0xffffff, roughness: 0.0 });
+    var material = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0x111111, specular: 0xffffff, roughness: 0.55 });
   }
   var cube = new THREE.Mesh(geometry, material);
   
@@ -49,3 +49,7 @@ function render() {
   renderer.render(scene, camera);
 }
 render();
+
+document.addEventListener( 'mousewheel', (event) => {
+    camera.position.z += event.deltaY/500;
+});
