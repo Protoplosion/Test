@@ -16,7 +16,7 @@ var anime = true;
 for (var i = 0; i < numCubes; i++) {
   var geometry = new THREE.BoxGeometry(1, 1, 1);
   if (anime) {
-    var texture = new THREE.TextureLoader().load('image.jpg');
+    var texture = new THREE.TextureLoader().load('woof.gif');
     var material = new THREE.MeshStandardMaterial({ map: texture });
   } else {
     var material = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0x111111, specular: 0xffffff, roughness: 0.55 });
