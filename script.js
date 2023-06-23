@@ -42,12 +42,25 @@ for (var i = 0; i < numCubes; i++) {
   scene.add(cube);
 }
 
+// Controls
+document.addEventListener( "mousewheel", (event) => {
+	speed += event.deltaY / 500
+  //camera.fov += event.deltaY / 20;
+  //camera.updateProjectionMatrix();
+});
+
+function onPointerMove( event ) {
+  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+	pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
+}
+
+// Render
 function render() {
   requestAnimationFrame(render);
 
   raycaster.setFromCamera( pointer, camera );
 	const intersects = raycaster.intersectObjects( scene.children );
-	for ( let i = 0; i < intersects.length; i ++ ) {
+	for (let i = 0; i < intersects.length; i++) {
 		intersects[ i ].object.material.color.set( 0xff0000 );
 	}
   
@@ -57,15 +70,5 @@ function render() {
   }
   renderer.render(scene, camera);
 }
-render();
-window.addEventListener( "pointermove", onPointerMove );
-// Controls
-document.addEventListener( "mousewheel", (event) => {
-  camera.fov += event.deltaY / 20;
-  camera.updateProjectionMatrix();
-});
-
-function onPointerMove( event ) {
-  pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-}
+window.addEventListener("pointermove", onPointerMove);
+window.requestAnimationFrame(render);
