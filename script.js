@@ -18,7 +18,7 @@ var speed = 0.01;
 for (var i = 0; i < numCubes; i++) {
   var geometry = new THREE.BoxGeometry(1, 1, 1);
   if (anime) {
-    var texture = new THREE.TextureLoader().load('woof.gif');
+    var texture = new THREE.TextureLoader().load("woof.gif");
     var material = new THREE.MeshStandardMaterial({ map: texture });
   } else {
     var material = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0x111111, specular: 0xffffff, roughness: 0.55 });
@@ -50,6 +50,8 @@ function render() {
 }
 render();
 
-document.addEventListener( 'mousewheel', (event) => {
-    camera.position.z += event.deltaY/500;
+// Controls
+document.addEventListener( "mousewheel", (event) => {
+  camera.fov += event.deltaY/500;
+  camera.updateProjectionMatrix();
 });
