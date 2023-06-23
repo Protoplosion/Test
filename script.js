@@ -9,7 +9,7 @@ camera.position.z = 5;
 var light = new THREE.HemisphereLight(0xffffff, 0x404040, 1);
 scene.add(light);
 
-var numCubes = 7;
+var numCubes = 27;
 var cubes = [];
 var anime = true;
 
@@ -41,8 +41,8 @@ for (var i = 0; i < numCubes; i++) {
 function render() {
   requestAnimationFrame(render);
   for (var i = 0; i < numCubes; i++) {
-    cubes[i].rotation.x += 0.01;
-    cubes[i].rotation.y += 0.01;
+    cubes[i].rotation.x += 0.1;
+    cubes[i].rotation.y += 0.1;
   }
   renderer.render(scene, camera);
 }
