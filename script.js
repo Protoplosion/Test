@@ -11,7 +11,7 @@ camera.position.z = 10;
 var light = new THREE.HemisphereLight(0xffffff, 0x404040, 1);
 scene.add(light);
 
-var numCubes = 2000;
+var numCubes = 10000;
 var cubes = [];
 
 const texture = new THREE.TextureLoader().load("woof.gif");
@@ -27,7 +27,7 @@ for (var i = 0; i < numCubes; i++) {
   
   cube.position.x = Math.random() * (posX - -posX) + -posX;
   cube.position.y = Math.random() * (posY - -posY) + -posY;
-  cube.position.z = Math.random() * -100;
+  cube.position.z = Math.random() * -500;
   
   cube.rotation.x = Math.random() * 360;
   cube.rotation.y = Math.random() * 360;
