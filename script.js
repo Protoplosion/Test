@@ -66,7 +66,7 @@ function render() {
     cubes[i].rotation.y += speed;
   }
   time++
-  camera.position.z += Math.cos(time) * 20;
+  camera.position.z += Math.cos(time);
   renderer.render(scene, camera);
 }
 window.addEventListener("pointermove", onPointerMove);
