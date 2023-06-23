@@ -1,4 +1,4 @@
-let time = 0
+let time = 0.0
 
 // Set up the scene
 var scene = new THREE.Scene();
@@ -65,8 +65,8 @@ function render() {
     cubes[i].rotation.x += speed;
     cubes[i].rotation.y += speed;
   }
-  time++
-  camera.position.z += Math.cos(time / 20) * 20;
+  time += 0.0001
+  camera.position.z += Math.cos(time) * 10;
   renderer.render(scene, camera);
 }
 window.addEventListener("pointermove", onPointerMove);
