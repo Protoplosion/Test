@@ -1,3 +1,6 @@
+document.addEventListener('mousedown', onDocumentMouseDown, false);
+document.addEventListener('mousemove', onDocumentMouseMove, false); 
+
 // Set up the scene
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -28,7 +31,7 @@ for (var i = 0; i < numCubes; i++) {
   
   cube.position.x = Math.random() * (posX - -posX) + -posX;
   cube.position.y = Math.random() * (posY - -posY) + -posY;
-  cube.position.z = Math.random() * 10;
+  cube.position.z = Math.random() * 2;
   
   cube.rotation.x = Math.random() * 360;
   cube.rotation.y = Math.random() * 360;
@@ -36,6 +39,25 @@ for (var i = 0; i < numCubes; i++) {
 
   cubes.push(cube);
   scene.add(cube);
+}
+
+function onDocumentMouseDown(event) {
+
+  event.preventDefault();
+
+  mouseYOnMouseDown = event.clientY - windowHalfY;
+  mouseXOnMouseDown = event.clientX - windowHalfX;
+
+  var vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5);
+  vector = vector.unproject(camera);
+
+  var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+  var intersects = raycaster.intersectObjects(cubes, true);
+
+  if (intersects.length > 0) {
+      cubes[i].rotation.x += 0.1;
+  }
+
 }
 
 function render() {
