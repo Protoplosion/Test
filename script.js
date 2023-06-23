@@ -1,6 +1,3 @@
-document.addEventListener('mousedown', onDocumentMouseDown, false);
-document.addEventListener('mousemove', onDocumentMouseMove, false); 
-
 // Set up the scene
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -12,9 +9,11 @@ camera.position.z = 5;
 var light = new THREE.HemisphereLight(0xffffff, 0x404040, 1);
 scene.add(light);
 
-var numCubes = 40;
+var numCubes = 27;
 var cubes = [];
 var anime = true;
+
+var speed = 0.01;
 
 for (var i = 0; i < numCubes; i++) {
   var geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -22,7 +21,7 @@ for (var i = 0; i < numCubes; i++) {
     var texture = new THREE.TextureLoader().load('woof.gif');
     var material = new THREE.MeshStandardMaterial({ map: texture });
   } else {
-    var material = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0x111111, specular: 0xffffff, roughness: 0.55 });
+    var material = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0x111111, specular: 0xffffff, roughness: 0.0 });
   }
   var cube = new THREE.Mesh(geometry, material);
   
@@ -41,30 +40,11 @@ for (var i = 0; i < numCubes; i++) {
   scene.add(cube);
 }
 
-function onDocumentMouseDown(event) {
-
-  event.preventDefault();
-
-  mouseYOnMouseDown = event.clientY - windowHalfY;
-  mouseXOnMouseDown = event.clientX - windowHalfX;
-
-  var vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1, 0.5);
-  vector = vector.unproject(camera);
-
-  var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
-  var intersects = raycaster.intersectObjects(cubes, true);
-
-  if (intersects.length > 0) {
-      cubes[i].rotation.x += 0.1;
-  }
-
-}
-
 function render() {
   requestAnimationFrame(render);
   for (var i = 0; i < numCubes; i++) {
-    cubes[i].rotation.x += 0.1;
-    cubes[i].rotation.y += 0.1;
+    cubes[i].rotation.x += speed;
+    cubes[i].rotation.y += speed;
   }
   renderer.render(scene, camera);
 }
