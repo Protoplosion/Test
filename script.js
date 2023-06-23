@@ -41,7 +41,7 @@ for (var i = 0; i < numCubes; i++) {
 var speed = 0.001;
 document.addEventListener( "mousewheel", (event) => {
 	speed += event.deltaY / 20000
-  camera.position.z += event.deltaY / 20;
+  camera.position.z += event.deltaY / 500;
 });
 
 function onPointerMove( event ) {
