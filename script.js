@@ -9,7 +9,7 @@ camera.position.z = 5;
 var light = new THREE.HemisphereLight(0xffffff, 0x404040, 1);
 scene.add(light);
 
-var numCubes = 27;
+var numCubes = 40;
 var cubes = [];
 var anime = true;
 
@@ -28,7 +28,7 @@ for (var i = 0; i < numCubes; i++) {
   
   cube.position.x = Math.random() * (posX - -posX) + -posX;
   cube.position.y = Math.random() * (posY - -posY) + -posY;
-  cube.position.z = Math.random() * 2;
+  cube.position.z = Math.random() * 10;
   
   cube.rotation.x = Math.random() * 360;
   cube.rotation.y = Math.random() * 360;
