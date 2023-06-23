@@ -41,8 +41,8 @@ for (var i = 0; i < numCubes; i++) {
 var speed = 0.01;
 document.addEventListener( "mousewheel", (event) => {
 	speed += event.deltaY / 9000
-  //camera.fov += event.deltaY / 20;
-  //camera.updateProjectionMatrix();
+  camera.fov += event.deltaY / 20;
+  camera.updateProjectionMatrix();
 });
 
 function onPointerMove( event ) {
@@ -57,7 +57,7 @@ function render() {
   raycaster.setFromCamera(pointer, camera);
 	const intersects = raycaster.intersectObjects(scene.children);
 	for (let i = 0; i < intersects.length; i++) {
-		intersects[i].object.material.map.set(texture2);
+		intersects[i].object.material.map = texture2;
 	}
 	
   for (var i = 0; i < numCubes; i++) {
