@@ -52,6 +52,6 @@ render();
 
 // Controls
 document.addEventListener( "mousewheel", (event) => {
-  camera.fov += event.deltaY/500;
+  camera.fov += event.deltaY / 5000;
   camera.updateProjectionMatrix();
 });
