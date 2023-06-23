@@ -13,18 +13,13 @@ scene.add(light);
 
 var numCubes = 27;
 var cubes = [];
-var anime = true;
 
-var speed = 0.01;
+const texture = new THREE.TextureLoader().load("woof.gif");
+const texture2 = new THREE.TextureLoader().load("image.jpg");
 
 for (var i = 0; i < numCubes; i++) {
-  var geometry = new THREE.BoxGeometry(1, 1, 1);
-  if (anime) {
-    var texture = new THREE.TextureLoader().load("woof.gif");
-    var material = new THREE.MeshStandardMaterial({ map: texture });
-  } else {
-    var material = new THREE.MeshStandardMaterial({ color: 0xff0000, emissive: 0x111111, specular: 0xffffff, roughness: 0.55 });
-  }
+	var geometry = new THREE.BoxGeometry(1, 1, 1);
+	var material = new THREE.MeshStandardMaterial({map: texture, emissive: 0x111111, specular: 0xffffff, roughness: 0.55});
   var cube = new THREE.Mesh(geometry, material);
   
   var posX = window.screen.availWidth / 2 * 0.005;
@@ -43,6 +38,7 @@ for (var i = 0; i < numCubes; i++) {
 }
 
 // Controls
+var speed = 0.01;
 document.addEventListener( "mousewheel", (event) => {
 	speed += event.deltaY / 9000
   //camera.fov += event.deltaY / 20;
@@ -61,7 +57,7 @@ function render() {
   raycaster.setFromCamera(pointer, camera);
 	const intersects = raycaster.intersectObjects(scene.children);
 	for (let i = 0; i < intersects.length; i++) {
-		intersects[i].object.material.color.set(0xff0000);
+		intersects[i].object.material.map.set(texture2);
 	}
 	
   for (var i = 0; i < numCubes; i++) {
