@@ -1,17 +1,17 @@
 // Set up the scene
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 var renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
-camera.position.z = 5;
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+camera.position.z = 10;
 
 var light = new THREE.HemisphereLight(0xffffff, 0x404040, 1);
 scene.add(light);
 
-var numCubes = 27;
+var numCubes = 100;
 var cubes = [];
 
 const texture = new THREE.TextureLoader().load("woof.gif");
@@ -27,7 +27,7 @@ for (var i = 0; i < numCubes; i++) {
   
   cube.position.x = Math.random() * (posX - -posX) + -posX;
   cube.position.y = Math.random() * (posY - -posY) + -posY;
-  cube.position.z = Math.random() * 2;
+  cube.position.z = Math.random() * 10;
   
   cube.rotation.x = Math.random() * 360;
   cube.rotation.y = Math.random() * 360;
@@ -59,7 +59,7 @@ function render() {
 	for (let i = 0; i < intersects.length; i++) {
 		intersects[i].object.material.map = texture2;
 	}
-	
+  
   for (var i = 0; i < numCubes; i++) {
     cubes[i].rotation.x += speed;
     cubes[i].rotation.y += speed;
