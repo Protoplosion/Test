@@ -11,7 +11,7 @@ camera.position.z = 10;
 var light = new THREE.HemisphereLight(0xffffff, 0x404040, 1);
 scene.add(light);
 
-var numCubes = 300;
+var numCubes = 600;
 var cubes = [];
 
 const texture = new THREE.TextureLoader().load("woof.gif");
