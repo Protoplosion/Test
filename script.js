@@ -53,20 +53,15 @@ function onPointerMove( event ) {
   pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
 	pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
 }
-let found = false
+
 // Render
 function render() {
   requestAnimationFrame(render);
 
   raycaster.setFromCamera(pointer, camera);
 	const intersects = raycaster.intersectObjects(scene.children);
-	found = false
 	for (let i = 0; i < intersects.length; i++) {
 		intersects[i].object.material.color.set(0xff0000);
-		found = true
-	}
-	if (!found) {
-		intersects.object.material.color.set(0xffffff);
 	}
 	
   for (var i = 0; i < numCubes; i++) {
