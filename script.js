@@ -23,8 +23,8 @@ for (var i = 0; i < numCubes; i++) {
 	var material = new THREE.MeshStandardMaterial({map: texture, emissive: 0x111111, specular: 0xffffff, roughness: 0.55});
   var cube = new THREE.Mesh(geometry, material);
   
-  var posX = window.screen.availWidth / 2 * boogaloo / 10;
-  var posY = window.screen.availHeight / 2 * boogaloo / 10;
+  var posX = window.screen.availWidth / 2 * boogaloo / 2;
+  var posY = window.screen.availHeight / 2 * boogaloo / 2;
   
   cube.position.x = Math.random() * (posX - -posX) + -posX;
   cube.position.y = Math.random() * (posY - -posY) + -posY;
