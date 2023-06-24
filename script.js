@@ -13,7 +13,7 @@ scene.add(light);
 var numCubes = 5000;
 var cubes = [];
 
-const boogaloo = 2
+const boogaloo = 1
 
 const texture = new THREE.TextureLoader().load("woof.gif");
 const texture2 = new THREE.TextureLoader().load("image.jpg");
